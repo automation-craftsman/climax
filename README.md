@@ -30,14 +30,14 @@ This is a simple Java-based weather application that retrieves and displays curr
    
 4. **Build the project (Maven):**
     ```bash
-   mvn clean install
+   mvn clean package
    
-5. **Run the application:**
+5. **Run the application with the fat JAR:**
     ```bash
-   java -jar target/weather-app-1.0-SNAPSHOT.jar <latitude> <longitude> # Replace with your actual JAR file name
+   java -jar climax.jar <latitude> <longitude>
    
    Example:
-   java -jar target/climax.jar 40.7128 -74.0060 # New York
+   java -jar ./target/climax-1.0-jar-with-dependencies.jar 40.7128 -74.0060 # New York
 
 # Project Structure
     climax/
