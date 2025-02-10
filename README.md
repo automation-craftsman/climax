@@ -32,14 +32,14 @@ This is a simple Java-based weather application that retrieves and displays curr
     ```bash
    mvn clean package
    
-5. **Run the application with the fat JAR:**
+5. **Run the application:**
     ```bash
    java -jar climax.jar <latitude> <longitude>
    
    Example:
-   java -jar ./target/climax-1.0-jar-with-dependencies.jar 40.7128 -74.0060 # New York
+   java -jar ./target/climax-1.0-jar-with-dependencies.jar 40.7128 -74.0060 # For New York
 
-# Project Structure
+# Base Project Structure
     climax/
     │── src/
     │   ├── main/java/com/devops/
@@ -51,10 +51,8 @@ This is a simple Java-based weather application that retrieves and displays curr
     │   │   ├── WeatherService.java
     │   ├── test/java/com/devops/
     │   │   ├── WeatherServiceTest.java
-    │── config.properties   
-    │── .gitignore
+    │── config.properties
     │── pom.xml
-    │── README.md
 
 # Contributing
 Contributions are welcome! Please open an issue or submit a pull request.

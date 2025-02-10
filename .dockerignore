@@ -1,0 +1,27 @@
+# Ignore Maven build artifacts
+target/
+dependency-reduced-pom.xml
+
+# Ignore IDE-specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files
+.env
+
+# Ignore Git and CI/CD files
+.git/
+.github/
+.gitignore
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+*.swp
