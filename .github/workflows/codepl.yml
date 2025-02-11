@@ -5,6 +5,11 @@ on:
     branches:
       - feature/codepl
   workflow_dispatch:
+    inputs:
+      check_dependency:
+        description: 'Set to true to run the dependency check'
+        required: true
+        default: 'false'
 
 jobs:
   check_codebase:
@@ -28,8 +33,11 @@ jobs:
       - name: Lint and code quality check
         run: mvn checkstyle:check
 
+      # This checks usually takes quite a long time to process and that is why I made it dependent on the
+      # manual trigger under workflow_dispatch to increase workflow efficiency
       - name: Dependency check
-        run: mvn dependency-check:check
+        run: mvn dependency-check:check -Dthreads=4
+        if: ${{ github.event.inputs.check_dependency == 'true' }} # Run only when input is 'true'
 
       - name: Unit tests
         run: mvn test -DskipTests
