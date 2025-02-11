@@ -12,6 +12,7 @@ jobs:
 
     env:
       CLIMAX_API_KEY: ${{ secrets.CLIMAX_API_KEY}}
+      NVD_API_KEY: ${{ secrets.NVD_API_KEY}}
 
     steps:
       - name: Checkout repository
@@ -24,8 +25,14 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Compile with 'Error Prone' for linting
-        run: mvn compile
+      - name: Lint and code quality check
+        run: mvn checkstyle:check
 
-      - name: Check code quality, dependency, and test
+      - name: Dependency check
+        run: mvn dependency-check:check
+
+      - name: Unit tests
+        run: mvn test -DskipTests
+
+      - name: Build and package
         run: mvn clean package -DskipTests

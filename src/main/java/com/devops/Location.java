@@ -33,10 +33,18 @@ public class Location {
 				JSONObject address = jsonObject.getJSONObject("address");
 				// Construct the address string as needed.  Here's an example:
 				StringBuilder addressString = new StringBuilder();
-				if (address.has("road")) addressString.append(address.getString("road")).append(", ");
-				if (address.has("city")) addressString.append(address.getString("city")).append(", ");
-				if (address.has("state")) addressString.append(address.getString("state")).append(", ");
-				if (address.has("country")) addressString.append(address.getString("country"));
+				if (address.has("road")) {
+					addressString.append(address.getString("road")).append(", ");
+				}
+				if (address.has("city")) {
+					addressString.append(address.getString("city")).append(", ");
+				}
+				if (address.has("state")) {
+					addressString.append(address.getString("state")).append(", ");
+				}
+				if (address.has("country")) {
+					addressString.append(address.getString("country"));
+				}
 
 				return addressString.toString();
 			} else {
