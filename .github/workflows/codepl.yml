@@ -1,0 +1,27 @@
+name: Check codebase
+
+on:
+  push:
+    branches:
+      - feature/codepl
+  workflow_dispatch:
+
+jobs:
+  check_codebase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup JAVA
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Compile with 'Error Prone' for linting
+        run: mvn compile
+
+      - name: Check code quality, dependency, and test
+        run: mvn clean package
