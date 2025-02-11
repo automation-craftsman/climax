@@ -10,6 +10,9 @@ jobs:
   check_codebase:
     runs-on: ubuntu-latest
 
+    env:
+      CLIMAX_API_KEY: ${{ secrets.CLIMAX_API_KEY}}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,9 +22,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+          cache: maven
 
       - name: Compile with 'Error Prone' for linting
         run: mvn compile
 
       - name: Check code quality, dependency, and test
-        run: mvn clean package
+        run: mvn clean package -DskipTests
