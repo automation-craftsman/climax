@@ -17,6 +17,14 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.google.errorprone/error_prone_core -->
+        <dependency>
+            <groupId>com.google.errorprone</groupId>
+            <artifactId>error_prone_core</artifactId>
+            <version>2.36.0</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
@@ -57,6 +65,16 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>com.google.errorprone</groupId>
+                            <artifactId>error_prone_core</artifactId>
+                            <version>2.36.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <compilerArgs>
+                        -Xlint:-processing
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <!-- Disabling default JAR packaging to produce only the Fat JAR-->

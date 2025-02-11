@@ -11,9 +11,6 @@ public class Climax {
 			double latitude = Double.parseDouble(args[0]);
 			double longitude = Double.parseDouble(args[1]);
 
-
-//			System.out.println("Fetching weather for: Lat = " + latitude + ", Lon = " + longitude);
-
 			WeatherService weatherService = new WeatherService();
 			WeatherData weatherData = weatherService.getWeather(latitude, longitude);
 
