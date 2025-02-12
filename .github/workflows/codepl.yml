@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup JAVA
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v4qq
         with:
           distribution: 'temurin'
           java-version: '21'
