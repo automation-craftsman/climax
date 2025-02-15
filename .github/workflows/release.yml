@@ -1,0 +1,29 @@
+name: Build and deploy image in the server
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build_and_deploy_image:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Login to Dockerhub
+        uses: docker/login-action@v3
+        with:
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and deploy docker image
+        run: |
+          docker build  --no-cache -t ${{ secrets.DOCKERHUB_USERNAME }}/climax:${{ github.event.release.tag_name }} .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/climax:${{ github.event.release.tag_name }}
+
