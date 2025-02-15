@@ -21,12 +21,12 @@ jobs:
           dockerfile: ./Dockerfile
 
       - name: Build docker image
-        run: docker build --progress=plain --no-cache -t aliulislamabir/climax:latest .
+        run: docker build --progress=plain --no-cache -t climax:latest .
 
       - name: Security scan with Trivy
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: 'aliulislamabir/climax:latest'
+          image-ref: 'climax:latest'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
