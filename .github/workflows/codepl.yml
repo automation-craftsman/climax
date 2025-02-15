@@ -11,9 +11,9 @@ on:
         required: true
         type: choice
         options:
-          - Yes
-          - No
-        default: Yes
+          - "Yes"
+          - "No"
+        default: "Yes"
 
 jobs:
   check_codebase:
@@ -40,7 +40,7 @@ jobs:
       # This checks usually takes quite a long time to process and that is why I made it dependent on the
       # manual trigger under workflow_dispatch to increase workflow efficiency
       - name: Dependency check
-        if: ${{ github.event.inputs.check_dependency == 'Yes' }} # Run only when input is 'true'
+        if: ${{ github.event.inputs.check_dependency == "Yes" }}
         run: mvn dependency-check:check -Dthreads=4
 
       - name: Unit tests
