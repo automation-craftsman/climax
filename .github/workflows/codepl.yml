@@ -9,11 +9,11 @@ on:
       check_dependency:
         description: 'Perform dependency check?'
         required: true
-        default: 'Yes'
         type: choice
         options:
           - Yes
           - No
+        default: Yes
 
 jobs:
   check_codebase:
