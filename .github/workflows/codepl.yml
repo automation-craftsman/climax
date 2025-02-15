@@ -40,7 +40,7 @@ jobs:
       # This checks usually takes quite a long time to process and that is why I made it dependent on the
       # manual trigger under workflow_dispatch to increase workflow efficiency
       - name: Dependency check
-        if: inputs.check_dependency == "Yes"
+        if: inputs.check_dependency == 'Yes'
         run: mvn dependency-check:check -Dthreads=4
 
       - name: Unit tests
