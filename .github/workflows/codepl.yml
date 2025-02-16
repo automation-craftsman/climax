@@ -41,7 +41,10 @@ jobs:
       # manual trigger under workflow_dispatch to increase workflow efficiency
       - name: Dependency security check
         if: inputs.check_dependency == 'Yes'
-        run: mvn dependency-check:check -Dthreads=4
+        run: |
+          mvn dependency-check:purge
+          mvn dependency-check:update
+          mvn dependency-check:check -Dthreads=4
         continue-on-error: true
 
       - name: Unit tests
