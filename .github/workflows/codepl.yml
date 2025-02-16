@@ -43,7 +43,7 @@ jobs:
         if: inputs.check_dependency == 'Yes'
         run: |
           mvn dependency-check:purge
-          mvn dependency-check:update
+          mvn dependency-check:update-only
           mvn dependency-check:check -Dthreads=4
         continue-on-error: true
 
