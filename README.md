@@ -54,8 +54,8 @@ This is a simple Java-based weather application that retrieves and displays curr
     │── config.properties
     │── pom.xml
 
-# Contributing
-Contributions are welcome! Please open an issue or submit a pull request.
+# Docker Image
+    docker pull aliulislamabir/climax
 
-# License
-MIT License - See the LICENSE file for details.
+# Contribution
+Contributions are welcome! Please open an issue or submit a pull request.
