@@ -33,9 +33,9 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          tags: climax:latest
+          tags: 'climax:latest'
           push: false
-          load: false
+          load: true
 
       - name: Security scan with Trivy
         uses: aquasecurity/trivy-action@0.28.0
