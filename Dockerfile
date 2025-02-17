@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.9.9-ibm-semeru-23-jammy as build
+FROM maven:3.9.9-ibm-semeru-23-jammy AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
